@@ -1,0 +1,43 @@
+'use client';
+
+import { useState } from 'react';
+import { PRIMARY_SOURCES } from '../data/sources';
+
+const cases = [
+  { title: 'Indore · Organise the whole waste chain', focus: 'City collection and sorting are connected to processing, staff capability and public participation.', lesson: 'Plan the service as a system: household practices, reliable collection, processing capacity and monitoring reinforce one another.', key: 'indoreWasteCase' },
+  { title: 'Indore · Organic waste and energy', focus: 'A municipal waste-to-energy project is profiled by the Government of India PPP portal.', lesson: 'A PPP can combine public service goals and private delivery, but it still needs clear outcomes, sound project preparation and public oversight.', key: 'indorePppCase' },
+  { title: 'Curitiba · Transit and land use', focus: 'A World Bank case describes Curitiba’s move toward a linear growth pattern centred on transit-oriented development.', lesson: 'Transport investments and land-use rules can be planned together; the approach depends on local institutions and urban form.', key: 'curitibaCase' },
+];
+const questions = [
+  { question: 'Which two broad strategy types appear in India’s Smart Cities Mission framework?', options: ['Area-based development and pan-city solutions', 'National highways and export zones', 'Only new greenfield cities'], answer: 0, explain: 'The framework combines area-based approaches with pan-city smart solutions.' },
+  { question: 'In a PPP, how should a project risk be assigned?', options: ['Always to the public authority', 'To the party best able to manage it, with terms defined in the contract', 'To residents without disclosure'], answer: 1, explain: 'Risk allocation should be deliberate and tied to the ability to manage the risk; it is a core appraisal question.' },
+  { question: 'What is a useful decentralization design principle?', options: ['Transfer duties without staff or funding', 'Match responsibilities with authority, capability, resources and accountability', 'Make every local body follow the same plan'], answer: 1, explain: 'Devolution works best when authority and responsibilities are supported by capacity, resources and accountability.' },
+  { question: 'What is one lesson from Curitiba’s case study?', options: ['Plan transit and land use together', 'Transit has no relationship to where cities grow', 'Every city should copy one identical network'], answer: 0, explain: 'The case highlights connecting the transport network to urban growth and land-use planning.' },
+  { question: 'How should you interpret the Vision India scenario scores?', options: ['As official statistics for India in 2047', 'As a classroom model based on fictional rules', 'As a government budget estimate'], answer: 1, explain: 'All scenario scores are illustrative learning outputs, not observed data, forecasts or official estimates.' },
+];
+
+export function CaseStudiesQuiz() {
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [answer, setAnswer] = useState<number | null>(null);
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
+  function choose(index: number) {
+    if (answer !== null) return;
+    setAnswer(index);
+    if (index === questions[questionIndex].answer) setScore((current) => current + 1);
+  }
+  function next() {
+    if (questionIndex === questions.length - 1) setFinished(true);
+    else { setQuestionIndex((current) => current + 1); setAnswer(null); }
+  }
+  function reset() { setQuestionIndex(0); setAnswer(null); setScore(0); setFinished(false); }
+  const current = questions[questionIndex];
+  return <>
+    <section id="case-studies" className="py-20 border-t border-slate-800/80 bg-[#060913] scroll-mt-20"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="max-w-3xl mb-10"><p className="text-xs uppercase tracking-[.2em] text-cyan-300 font-bold">Phase 8 · Case studies</p><h2 className="text-3xl sm:text-5xl font-black text-white mt-3">Look at the system behind the project.</h2><p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-4">These short cases link to public sources. Each highlights a planning lesson and a question for local context; none is presented as a universal recipe.</p></div>
+      <div className="grid lg:grid-cols-3 gap-4">{cases.map((item) => <article key={item.title} className="glass-panel rounded-3xl p-5 sm:p-6 border border-slate-800"><p className="text-[10px] uppercase tracking-wider text-emerald-300 font-bold">Case study</p><h3 className="text-lg font-extrabold text-white mt-2">{item.title}</h3><p className="text-sm text-slate-300 leading-relaxed mt-3">{item.focus}</p><div className="mt-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-4"><strong className="text-xs text-amber-200">Planning lesson</strong><p className="text-xs text-slate-300 leading-relaxed mt-2">{item.lesson}</p></div><a href={PRIMARY_SOURCES[item.key].url} target="_blank" rel="noopener noreferrer" className="inline-flex mt-4 text-xs font-semibold text-cyan-300 underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">Open source case ↗</a></article>)}</div>
+    </div></section>
+    <section id="quiz" className="py-20 border-t border-slate-800/80 bg-[#080e1a] scroll-mt-20"><div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div className="mb-8"><p className="text-xs uppercase tracking-[.2em] text-amber-300 font-bold">Phase 8 · Knowledge check</p><h2 className="text-3xl sm:text-4xl font-black text-white mt-3">Test your integrated-planning lens.</h2><p className="text-sm text-slate-300 mt-3">Five questions · no grades, just a chance to review the ideas.</p></div>
+      <div className="glass-panel rounded-3xl p-5 sm:p-8 border border-slate-800" aria-live="polite">{finished ? <div className="text-center py-5"><p className="text-xs uppercase tracking-wider text-emerald-300 font-bold">Knowledge check complete</p><h3 className="text-3xl font-black text-white mt-3">{score} / {questions.length}</h3><p className="text-sm text-slate-300 mt-2">Use the explanations to revisit the topics you want to explore further.</p><button type="button" onClick={reset} className="mt-5 px-5 py-3 rounded-xl bg-emerald-400 text-slate-950 text-sm font-bold hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300">Try again</button></div> : <><div className="flex justify-between gap-3 text-xs text-slate-400"><span>Question {questionIndex + 1} of {questions.length}</span><span>Score: {score}</span></div><h3 className="text-lg sm:text-xl font-bold text-white mt-5">{current.question}</h3><div className="grid gap-2 mt-5">{current.options.map((option, index) => { const chosen = answer === index; const correct = answer !== null && index === current.answer; return <button key={option} type="button" disabled={answer !== null} onClick={() => choose(index)} className={`text-left p-4 rounded-xl border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${correct ? 'border-emerald-500/60 bg-emerald-500/10 text-emerald-100' : chosen ? 'border-rose-500/60 bg-rose-500/10 text-rose-100' : 'border-slate-800 bg-slate-950/60 text-slate-200 hover:border-slate-600'}`}><span className="font-bold mr-2">{String.fromCharCode(65 + index)}.</span>{option}</button>; })}</div>{answer !== null && <div className="mt-4 rounded-xl border border-slate-800 bg-slate-950/70 p-4"><p className="text-xs text-slate-200">{current.explain}</p><button type="button" onClick={next} className="mt-4 px-4 py-2 rounded-lg bg-cyan-400 text-slate-950 text-xs font-bold hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">{questionIndex === questions.length - 1 ? 'See my result' : 'Next question'}</button></div>}</>}</div>
+    </div></section>
+  </>;
+}

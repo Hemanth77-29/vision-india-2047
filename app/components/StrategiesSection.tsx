@@ -1,0 +1,15 @@
+import { PRIMARY_SOURCES } from '../data/sources';
+
+const strategies = [
+  { name: 'Singapore · Green Plan 2030', theme: 'Join up nature, energy, daily life, the economy and resilience.', transfer: 'A whole-of-government set of linked pillars makes cross-sector connections visible. Adaptation needs to account for India’s larger diversity of states, city sizes and development needs.', source: 'singaporeGreenPlan' },
+  { name: 'Japan · Society 5.0', theme: 'Use digital and physical systems to address social needs with people at the centre.', transfer: 'Technology is framed as a means to solve social challenges. Local capacity, access, privacy and accountable data use shape whether digital services benefit everyone.', source: 'japanSociety5' },
+  { name: 'Netherlands · Delta Programme', theme: 'Connect water safety, freshwater planning and climate-resilient use of land.', transfer: 'Long-term planning can combine infrastructure with spatial adaptation and coordination across government levels. Measures must be redesigned for India’s own river basins, coastlines and institutions.', source: 'netherlandsDelta' },
+];
+
+export function StrategiesSection() {
+  return <section id="strategies" className="py-20 border-t border-slate-800/80 bg-[#080e1a] scroll-mt-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="max-w-3xl mb-10"><p className="text-xs uppercase tracking-[.2em] text-cyan-300 font-bold">Phase 6 · International strategies</p><h2 className="text-3xl sm:text-5xl font-black text-white mt-3">Learn across contexts. Adapt with care.</h2><p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-4">These government strategies show different ways to connect development priorities. Their institutions, geography and resources differ from India’s; use them to ask better questions, not as templates to copy.</p></div>
+      <div className="grid md:grid-cols-3 gap-4">{strategies.map((item) => <article key={item.name} className="glass-panel rounded-3xl p-5 sm:p-6 border border-slate-800 flex flex-col"><p className="text-[10px] uppercase tracking-wider text-emerald-300 font-bold">Policy example</p><h3 className="text-lg font-extrabold text-white mt-2">{item.name}</h3><p className="text-sm text-slate-200 leading-relaxed mt-3">{item.theme}</p><div className="rounded-2xl bg-slate-950/70 border border-slate-800 p-4 mt-4 flex-1"><strong className="text-xs text-amber-200">Question for India</strong><p className="text-xs text-slate-300 leading-relaxed mt-2">{item.transfer}</p></div><a href={PRIMARY_SOURCES[item.source].url} target="_blank" rel="noopener noreferrer" className="inline-flex mt-4 text-xs font-semibold text-cyan-300 underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">Official strategy source ↗</a></article>)}</div>
+    </div>
+  </section>;
+}

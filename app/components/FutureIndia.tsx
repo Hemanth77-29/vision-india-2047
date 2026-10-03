@@ -1,0 +1,23 @@
+'use client';
+
+import { useState } from 'react';
+import { PRIMARY_SOURCES } from '../data/sources';
+
+const futures = [
+  { id: 'capabilities', title: 'Capabilities for all', focus: 'Education, health, decent work and access to essential services', question: 'Who can participate in the opportunities created by growth?', links: ['Invest in foundational learning and skills', 'Connect public services to underserved communities', 'Track inclusion alongside productivity'] },
+  { id: 'resilience', title: 'Resilience by design', focus: 'Climate adaptation, water security and reliable infrastructure', question: 'Can development withstand shocks and protect livelihoods?', links: ['Plan settlements with local climate risks in mind', 'Build maintenance and resilience into infrastructure decisions', 'Coordinate water, land use and energy planning'] },
+  { id: 'innovation', title: 'Innovation with public purpose', focus: 'Research, enterprise and useful digital public infrastructure', question: 'Do new tools improve life and expand shared opportunity?', links: ['Support experimentation and responsible innovation', 'Make digital services accessible and accountable', 'Pair technology with institutions and human capability'] },
+];
+
+export function FutureIndia() {
+  const [pathId, setPathId] = useState('capabilities');
+  const path = futures.find((item) => item.id === pathId) || futures[0];
+  return <section id="future" className="py-20 border-t border-slate-800/80 bg-[#060913] scroll-mt-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="max-w-3xl mb-10"><p className="text-xs uppercase tracking-[.2em] text-emerald-300 font-bold">Phase 7 · Future India</p><h2 className="text-3xl sm:text-5xl font-black text-white mt-3">Many pathways can shape India’s future.</h2><p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-4">Vision India 2047 is a national aspiration, not a guaranteed outcome. Explore three complementary planning lenses. These are discussion pathways, not forecasts or official targets.</p></div>
+      <div className="grid lg:grid-cols-[.9fr_1.1fr] gap-6"><div role="tablist" aria-label="Future planning pathways" className="grid gap-2">{futures.map((item) => <button key={item.id} id={`future-tab-${item.id}`} role="tab" aria-selected={pathId === item.id} aria-controls="future-panel" type="button" onClick={() => setPathId(item.id)} className={`rounded-2xl border p-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${pathId === item.id ? 'bg-emerald-500/15 border-emerald-500/50' : 'bg-slate-950/50 border-slate-800 hover:border-slate-600'}`}><strong className="block text-sm text-white">{item.title}</strong><span className="block text-xs text-slate-400 mt-1">{item.focus}</span></button>)}</div>
+        <div id="future-panel" role="tabpanel" aria-labelledby={`future-tab-${path.id}`} className="glass-panel rounded-3xl p-6 sm:p-8 border border-emerald-500/20"><p className="text-xs uppercase tracking-wider text-cyan-300 font-bold">Selected planning lens</p><h3 className="text-2xl font-black text-white mt-2">{path.title}</h3><p className="text-sm text-slate-200 leading-relaxed mt-4">{path.question}</p><ul className="mt-5 space-y-3">{path.links.map((item) => <li key={item} className="flex gap-3 text-sm text-slate-300"><span className="text-emerald-300" aria-hidden="true">◆</span>{item}</li>)}</ul><div className="mt-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20"><strong className="text-xs text-amber-200">Scenario note</strong><p className="text-xs text-slate-300 leading-relaxed mt-2">A real pathway depends on choices, institutions, resources, evidence and changing conditions. This activity offers no numeric projection.</p></div><a href={PRIMARY_SOURCES.nitiViksit.url} target="_blank" rel="noopener noreferrer" className="inline-flex mt-5 text-xs font-semibold text-cyan-300 underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">Explore India’s official Viksit Bharat information ↗</a></div>
+      </div>
+      <div className="mt-8 grid sm:grid-cols-3 gap-3">{['People and capabilities', 'Planet and resilience', 'Prosperity and opportunity'].map((item) => <div key={item} className="rounded-2xl p-4 border border-slate-800 bg-slate-950/60 text-center text-xs font-bold text-slate-200">{item}</div>)}</div>
+    </div>
+  </section>;
+}
