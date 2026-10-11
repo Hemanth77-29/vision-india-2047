@@ -30,7 +30,7 @@ export const FERTILITY_TRANSITION_DATA: FertilityPoint[] = [
     label: '2005',
     tfr: 2.9,
     type: 'historical',
-    sourceName: 'NFHS-3 Survey',
+    sourceName: 'NFHS-3 Survey (2005–06)',
     note: 'Rapid rural health expansion and urbanization.'
   },
   {
@@ -38,40 +38,48 @@ export const FERTILITY_TRANSITION_DATA: FertilityPoint[] = [
     label: '2015',
     tfr: 2.3,
     type: 'historical',
-    sourceName: 'NFHS-4 Survey',
+    sourceName: 'NFHS-4 Survey (2015–16)',
     note: 'Approaching natural replacement level.'
   },
   {
-    year: 2023,
-    label: '2026 Today',
+    year: 2021,
+    label: '2019–21',
     tfr: 2.0,
-    type: 'current',
-    sourceName: 'NFHS-5 / IIPS',
-    note: 'Achieved below-replacement fertility (2.0 < 2.1 replacement line).'
+    type: 'historical',
+    sourceName: 'NFHS-5, 2019–21',
+    note: 'Latest national survey: TFR: 2.0 children per woman (Source period: NFHS-5, 2019–21). National fertility observed below the 2.1 replacement level.'
+  },
+  {
+    year: 2026,
+    label: '2026 (Proj.)',
+    tfr: 1.94,
+    type: 'projection',
+    sourceName: 'PROJECTION — UN World Population Prospects 2024',
+    note: 'PROJECTION — UN World Population Prospects 2024: Medium-variant projection of 1.94 children per woman for 2026.'
   },
   {
     year: 2047,
-    label: '2047 Target',
+    label: '2047 (Proj.)',
     tfr: 1.69,
     type: 'projection',
-    sourceName: 'UN WPP 2024 Medium Variant',
-    note: 'Centenary projection: stabilizing fertility and peak working cohort.'
+    sourceName: 'PROJECTION — UN World Population Prospects 2024',
+    note: 'PROJECTION — UN World Population Prospects 2024: Centenary projection with stabilizing low fertility.'
   },
   {
-    year: 2065,
-    label: '2060s Peak',
-    tfr: 1.65,
+    year: 2062,
+    label: '2062 (Peak)',
+    tfr: 1.66,
     type: 'projection',
-    sourceName: 'UN WPP 2024 Medium Variant',
-    note: 'Projected national population peak (~1.69 Billion).'
+    sourceName: 'PROJECTION — UN World Population Prospects 2024',
+    note: 'PROJECTION — UN World Population Prospects 2024: Projected national population peak (~1.70 Billion around 2062).'
   },
   {
     year: 2100,
-    label: '2100',
+    label: '2100 (Proj.)',
     tfr: 1.52,
     type: 'projection',
-    sourceName: 'UN WPP 2024 Medium Variant',
-    note: 'Long-term population contraction and mature age distribution.'
+    sourceName: 'PROJECTION — UN World Population Prospects 2024',
+    note: 'PROJECTION — UN World Population Prospects 2024: Long-term population contraction to approximately 1.51 Billion.'
   }
 ];
 

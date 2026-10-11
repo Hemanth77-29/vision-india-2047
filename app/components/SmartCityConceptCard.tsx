@@ -46,11 +46,11 @@ export const SmartCityConceptCard: React.FC = () => {
         ))}
       </div>
 
-      {/* Phase 4 Builder Link */}
+      {/* Builder link */}
       <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-950/80 via-slate-900 to-emerald-950/80 border border-blue-400/40 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
           <span className="text-[10px] uppercase font-bold text-blue-300 tracking-wider block mb-1">
-            Phase 4 · Interactive City Builder
+            Smart City Builder · Interactive Simulation
           </span>
           <h4 className="text-lg font-extrabold text-white">
             Build & test an illustrative smart city

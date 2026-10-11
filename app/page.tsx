@@ -12,6 +12,7 @@ import { StrategiesSection } from './components/StrategiesSection';
 import { FutureIndia } from './components/FutureIndia';
 import { NationSimulator } from './components/NationSimulator';
 import { CaseStudiesQuiz } from './components/CaseStudiesQuiz';
+import { AskVisionAssistant } from './components/AskVisionAssistant';
 
 export default function Home() {
   return (
@@ -27,35 +28,36 @@ export default function Home() {
         {/* 3 Conceptual Pillars Strip (PEOPLE • PLANET • PROSPERITY) */}
         <PillarStrip />
 
-        {/* Phase 2A: INDIA TODAY — Current Development Snapshot */}
+        {/* Module 2A: INDIA TODAY — Current Development Snapshot */}
         <IndiaTodaySection />
 
-        {/* Phase 2B: INDIA'S DEMOGRAPHIC TRANSITION */}
+        {/* Module 2B: INDIA'S DEMOGRAPHIC TRANSITION */}
         <DemographicSection />
 
-        {/* Phase 3: SUSTAINABLE DEVELOPMENT + INNOVATIVE MODELS */}
+        {/* Module 3: SUSTAINABLE DEVELOPMENT + INNOVATIVE MODELS */}
         <SustainabilitySection />
 
-        {/* Phase 4: interactive smart city planning simulation */}
+        {/* Module 4: interactive smart city planning simulation */}
         <SmartCityBuilder />
 
-        {/* Phase 5: public-private partnerships and local governance */}
+        {/* Module 5: public-private partnerships and local governance */}
         <PPPExplorer />
         <DecentralizationExplorer />
 
-        {/* Phase 6: international strategies and development exercise */}
+        {/* Module 6: international strategies and development exercise */}
         <StrategiesSection />
         <NationSimulator />
 
-        {/* Phase 7: Future India pathways */}
+        {/* Module 7: Future India pathways */}
         <FutureIndia />
 
-        {/* Phase 8: sourced case studies and interactive knowledge check */}
+        {/* Module 8: sourced case studies and interactive knowledge check */}
         <CaseStudiesQuiz />
       </main>
 
       {/* Footer & Centralized Source Directory */}
       <Footer />
+      <AskVisionAssistant />
     </div>
   );
 }

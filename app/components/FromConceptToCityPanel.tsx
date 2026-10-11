@@ -9,7 +9,7 @@ export const FromConceptToCityPanel: React.FC = () => {
 
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20 mb-4 inline-block">
-          Continue to the Phase 4 builder
+          Continue to Smart City Builder
         </span>
 
         <h3 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">

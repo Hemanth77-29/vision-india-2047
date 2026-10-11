@@ -51,7 +51,7 @@ export const SdgGrouping: React.FC = () => {
 
               <div className="space-y-3">
                 {group.sdgs.map((sdg) => (
-                  <div key={sdg.number} className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
+                  <div key={sdg.number} className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3 hover:border-slate-700 transition-colors">
                     <span className={`w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs shrink-0 ${
                       isAmber ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' :
                       isEmerald ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' :
@@ -60,10 +60,21 @@ export const SdgGrouping: React.FC = () => {
                     }`}>
                       {sdg.number}
                     </span>
-                    <div>
-                      <h4 className="text-xs font-bold text-white mb-0.5">
-                        SDG {sdg.number}: {sdg.title}
-                      </h4>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-baseline justify-between gap-2 mb-0.5">
+                        <h4 className="text-xs font-bold text-white">
+                          SDG {sdg.number}: {sdg.title}
+                        </h4>
+                        <a
+                          href={sdg.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[10px] text-cyan-400 hover:text-cyan-300 underline underline-offset-2 shrink-0 font-medium"
+                          aria-label={`Official UN page for SDG ${sdg.number}`}
+                        >
+                          UN Goal ↗
+                        </a>
+                      </div>
                       <p className="text-[11px] text-slate-300 leading-normal">
                         {sdg.description}
                       </p>

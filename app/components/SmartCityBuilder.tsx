@@ -54,7 +54,7 @@ export function SmartCityBuilder() {
           </section>
         </div>
 
-        <aside className="space-y-5">
+        <aside className="space-y-5 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-2">
           <section aria-labelledby="budget-heading" className="glass-panel rounded-3xl p-5 sm:p-6 border border-amber-500/30">
             <p className="text-[11px] uppercase tracking-widest text-amber-300 font-bold">Illustrative planning envelope</p><h3 id="budget-heading" className="text-2xl font-black text-white mt-1">{money(result.budgetRemainingCr)} <span className="text-sm font-medium text-slate-400">remaining</span></h3>
             <div className="h-2 rounded-full bg-slate-800 mt-4 overflow-hidden" role="meter" aria-label="Illustrative budget used" aria-valuemin={0} aria-valuemax={INITIAL_SIMULATION_BUDGET_CR} aria-valuenow={result.budgetUsedCr}><div className="h-full bg-amber-400 rounded-full transition-[width]" style={{ width: `${Math.min(100, result.budgetUsedCr / INITIAL_SIMULATION_BUDGET_CR * 100)}%` }} /></div>
@@ -90,7 +90,7 @@ export function SmartCityBuilder() {
         <a href={PRIMARY_SOURCES.mohuaSmartCitiesDashboard.url} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center px-4 py-3 rounded-xl border border-slate-700 text-xs font-bold text-slate-200 hover:border-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400">Official Mission dashboard ↗</a>
       </section>
 
-      <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-800 pt-6"><p className="text-xs text-slate-400">Phase 4 · Smart City Builder complete</p><p className="text-sm font-bold text-emerald-300">Next unit: Public–Private Partnerships (PPP) →</p></div>
+      <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-800 pt-6"><p className="text-xs text-slate-400">Smart City Builder complete</p><p className="text-sm font-bold text-emerald-300">Next: Public–Private Partnerships (PPP) →</p></div>
     </div>
   </section>;
 }

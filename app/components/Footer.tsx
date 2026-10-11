@@ -3,7 +3,7 @@ import { StatusBadge } from './StatusBadge';
 import { PRIMARY_SOURCES } from '../data/sources';
 
 const SOURCE_GROUPS = [
-  { title: 'People, population & development', keys: ['unWpp', 'nfhs5', 'worldBank', 'unfpaAgeing', 'nitiSdg', 'nitiViksit', 'unSdgs'] },
+  { title: 'People, population & development', keys: ['unWpp', 'nfhs5', 'worldBank', 'unfpaAgeing', 'nitiSdg', 'nitiViksit', 'unSdgs', 'aisheEdu', 'plfsLabor', 'ayushmanBharat'] },
   { title: 'Policy, governance & urban delivery', keys: ['mnrePanchamrit', 'mohuaSmartCities', 'mohuaSmartCitiesDashboard', 'indiaConstitution', 'deaPppGuidelines'] },
   { title: 'Models, strategies & case studies', keys: ['ellenMacArthur', 'unepGreenEconomy', 'unHabitat', 'singaporeGreenPlan', 'japanSociety5', 'netherlandsDelta', 'indoreWasteCase', 'indorePppCase', 'curitibaCase'] },
 ];
@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
             <span>Strict Source & Data Classification Policy</span>
           </h3>
           <p className="text-xs text-slate-300 mb-4 leading-relaxed">
-            Vision India 2047 distinguishes four distinct metric categories to preserve absolute factual integrity and prevent misleading projections from being interpreted as verified outcomes.
+            This page labels observed data, estimates, targets, projections and simulations separately. Each linked source gives the reference period; figures may be revised as publishers release new data.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">

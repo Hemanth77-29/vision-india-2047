@@ -5,20 +5,20 @@ export const INDIA_TODAY_INDICATORS: IndicatorItem[] = [
     id: 'ind-population',
     title: 'Total Population Baseline',
     category: 'Demographics',
-    value: '1.44B',
-    unit: 'Total Citizens',
-    year: '2024 (Observed)',
+    value: '1.45B',
+    unit: 'Total Population (UN Estimate)',
+    year: '2024 (Estimate)',
     type: 'current',
-    statusLabel: 'CURRENT',
-    description: 'India is currently the most populous country globally, entering a pivotal demographic dividend window with over 68% in working ages.',
+    statusLabel: 'LATEST ESTIMATE',
+    description: 'India has one of the world\'s largest young and working-age populations (over 68% in working ages 15–64). UN World Population Prospects 2024 estimates the population at approximately 1.45 billion in 2024, projecting a peak around 2062 (~1.70 billion) before gradual decline.',
     source: {
       name: 'UN World Population Prospects (2024 Revision)',
       publisher: 'United Nations Population Division',
       url: 'https://population.un.org/wpp/',
       dateOrYear: 'July 2024',
-      notes: 'Official 2024 UN empirical census estimate.'
+      notes: 'Authoritative UN demographic estimates and medium-variant projections.'
     },
-    trend: '+0.9% annual growth (slowing)',
+    trend: '+0.9% annual growth (slowing toward projected peak around 2062)',
     progressPercent: 88
   },
   {
@@ -27,18 +27,18 @@ export const INDIA_TODAY_INDICATORS: IndicatorItem[] = [
     category: 'Demographics',
     value: '2.0',
     unit: 'Children per woman',
-    year: '2021-2023',
+    year: 'NFHS-5, 2019–21',
     type: 'current',
-    statusLabel: 'CURRENT',
-    description: 'National TFR has declined below the natural replacement level of 2.1 across 31 out of 36 States & Union Territories.',
+    statusLabel: 'LATEST SURVEY',
+    description: 'Latest national survey:\nTFR: 2.0 children per woman\nSource period: NFHS-5, 2019–21.\nNational TFR has fallen below the 2.1 replacement benchmark across 31 of 36 States and Union Territories.',
     source: {
       name: 'National Family Health Survey (NFHS-5)',
       publisher: 'Ministry of Health & Family Welfare / IIPS',
       url: 'https://main.mohfw.gov.in/',
-      dateOrYear: '2022',
-      notes: 'Empirical survey across 636,699 households.'
+      dateOrYear: '2019–21 (Survey Period)',
+      notes: 'Empirical survey across 636,699 households across all states and UTs.'
     },
-    trend: 'Declined from 5.9 in 1950s to 2.0 today',
+    trend: 'Declined from 5.9 in 1950s to 2.0 in NFHS-5 (2019–21)',
     progressPercent: 95
   },
   {
@@ -46,19 +46,19 @@ export const INDIA_TODAY_INDICATORS: IndicatorItem[] = [
     title: 'Economic GDP & Viksit Target',
     category: 'Economy',
     value: '$3.9T',
-    unit: 'GDP (Target $30T by 2047)',
-    year: '2025 Current',
+    unit: 'Nominal GDP (2024 Estimate)',
+    year: '2024–25 (Estimate)',
     type: 'current',
-    statusLabel: 'CURRENT',
-    description: 'World\'s 5th largest economy, aiming for high-income developed country status ($18,000+ per capita GDP) by 2047.',
+    statusLabel: 'LATEST ESTIMATE',
+    description: 'Ranked world\'s 5th largest economy by nominal GDP in 2024 (IMF World Economic Outlook / World Bank). NITI Aayog scenario: per-capita GDP above $18,000 by 2047 as part of the Viksit Bharat vision.',
     source: {
-      name: 'Viksit Bharat @2047 National Framework & World Bank',
-      publisher: 'NITI Aayog & World Bank Open Data',
+      name: 'Viksit Bharat @2047 National Framework & IMF / World Bank',
+      publisher: 'NITI Aayog & International Monetary Fund / World Bank',
       url: 'https://www.niti.gov.in/',
-      dateOrYear: '2024-2025',
-      notes: 'Current GDP combined with official 2047 national target.'
+      dateOrYear: '2024',
+      notes: 'Dated 2024 nominal GDP estimate alongside NITI Aayog 2047 aspirational scenario.'
     },
-    trend: '7.2% GDP growth rate',
+    trend: 'Estimated ~7.0% real annual growth rate',
     progressPercent: 13
   },
   {
@@ -83,42 +83,42 @@ export const INDIA_TODAY_INDICATORS: IndicatorItem[] = [
   },
   {
     id: 'ind-renewable',
-    title: 'Non-Fossil Power Capacity',
+    title: 'Renewable & Non-Fossil Power Capacity',
     category: 'Sustainability',
-    value: '203.7 GW',
-    unit: '46.3% Share (Target 500 GW)',
-    year: '2025 Current',
+    value: '203.2 GW',
+    unit: 'Renewable Capacity (Oct 2024)',
+    year: 'October 2024',
     type: 'current',
-    statusLabel: 'CURRENT',
-    description: 'Non-fossil sources comprise 46.3% of total installed power capacity, progressing toward the 500 GW Panchamrit 2030 pledge.',
+    statusLabel: 'AS OF OCTOBER 2024',
+    description: 'Renewable installed capacity was 203.18 GW in October 2024 (44.9% of 452.69 GW, calculated). Non-fossil capacity including 8.18 GW nuclear was 211.36 GW (46.7%, calculated). These are distinct from the 500 GW non-fossil capacity target for 2030.',
     source: {
-      name: 'Executive Summary on Power Sector',
-      publisher: 'Central Electricity Authority (CEA) & MNRE',
-      url: 'https://mnre.gov.in/',
-      dateOrYear: 'January 2025',
-      notes: 'Official installed capacity monitoring data.'
+      name: 'MNRE / PIB October 2024 Renewable Capacity Overview (PRID 2073038)',
+      publisher: 'MNRE & Central Electricity Authority (CEA)',
+      url: 'https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=2073038',
+      dateOrYear: '13 November 2024 (October 2024 data)',
+      notes: 'The published 203.18 GW renewable and 211.36 GW non-fossil totals yield calculated shares of 44.9% and 46.7% of 452.69 GW respectively.'
     },
-    trend: 'On track to exceed 50% by 2030',
+    trend: '44.9% renewable; 46.7% non-fossil (calculated)',
     progressPercent: 46
   },
   {
     id: 'ind-sdg-index',
     title: 'NITI SDG India Index Score',
     category: 'Integrated Approach',
-    value: '66 / 100',
-    unit: 'Composite National Score',
-    year: '2023-2024',
+    value: '71 / 100',
+    unit: 'Composite National Score (2023–24)',
+    year: '2023–24',
     type: 'current',
-    statusLabel: 'CURRENT',
-    description: 'Tracks state-level progress across all 16 Sustainable Development Goals, led by SDG 13 (Climate Action) and SDG 7 (Clean Energy).',
+    statusLabel: 'LATEST AVAILABLE',
+    description: 'Composite national score of 71/100 on NITI Aayog SDG India Index 2023–24 (PIB PRID 2032857). Evaluates progress across 16 Sustainable Development Goals; the previous score was 66/100 in 2020–21.',
     source: {
-      name: 'SDG India Index & Dashboard 2023-24',
-      publisher: 'NITI Aayog',
-      url: 'https://sdgindiaindex.niti.gov.in/',
-      dateOrYear: 'July 2024',
-      notes: 'Comprehensive state-level performance index.'
+      name: 'SDG India Index & Dashboard 2023-24 (PIB PRID 2032857)',
+      publisher: 'NITI Aayog, Government of India',
+      url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2032857',
+      dateOrYear: 'July 2024 (2023–24 Edition)',
+      notes: 'Official release documenting national score increase to 71 in 2023–24 from 66 in 2020–21 and 57 in 2018.'
     },
-    trend: 'Score improved from 57 (2018) to 66 (2024)',
-    progressPercent: 66
+    trend: 'Score improved from 57 (2018) to 66 (2020–21) to 71 (2023–24)',
+    progressPercent: 71
   }
 ];

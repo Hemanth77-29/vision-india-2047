@@ -5,6 +5,7 @@ export interface SdgGroup {
     number: number;
     title: string;
     description: string;
+    url: string;
   }[];
 }
 
@@ -43,7 +44,7 @@ export const SUSTAINABLE_PILLARS_DETAIL = [
     focusPoints: [
       'Climate Change Mitigation & Adaptation',
       'Biodiversity Conservation & Ecosystem Restoration',
-      'Clean Energy & Net-Zero Transition',
+      'Clean Energy & India’s Stated Long-Term Net-Zero Ambition',
       'Water Security & Ocean Health',
       'Sustainable Natural Resource Management'
     ]
@@ -166,41 +167,126 @@ export const SDG_CONCEPTUAL_GROUPS: SdgGroup[] = [
     category: 'PEOPLE',
     color: 'amber',
     sdgs: [
-      { number: 1, title: 'No Poverty', description: 'End poverty in all its forms everywhere.' },
-      { number: 2, title: 'Zero Hunger', description: 'End hunger, achieve food security, and promote sustainable agriculture.' },
-      { number: 3, title: 'Good Health & Well-being', description: 'Ensure healthy lives and promote well-being for all at all ages.' },
-      { number: 4, title: 'Quality Education', description: 'Ensure inclusive and equitable quality education and promote lifelong learning.' },
-      { number: 5, title: 'Gender Equality', description: 'Achieve gender equality and empower all women and girls.' }
+      {
+        number: 1,
+        title: 'No Poverty',
+        description: 'Eradicating extreme poverty and expanding targeted social safety nets so all citizens can build resilient livelihoods.',
+        url: 'https://sdgs.un.org/goals/goal1'
+      },
+      {
+        number: 2,
+        title: 'Zero Hunger',
+        description: 'Ensuring nutritional security, climate-resilient farming, and equitable food distribution networks to end malnutrition.',
+        url: 'https://sdgs.un.org/goals/goal2'
+      },
+      {
+        number: 3,
+        title: 'Good Health & Well-being',
+        description: 'Strengthening primary healthcare delivery, reducing maternal and infant mortality, and lowering out-of-pocket health costs.',
+        url: 'https://sdgs.un.org/goals/goal3'
+      },
+      {
+        number: 4,
+        title: 'Quality Education',
+        description: 'Delivering equitable foundational learning, STEM skills, and industry-aligned vocational training for a modern workforce.',
+        url: 'https://sdgs.un.org/goals/goal4'
+      },
+      {
+        number: 5,
+        title: 'Gender Equality',
+        description: 'Closing gender gaps in workforce participation, leadership, property rights, and safety to unlock full societal potential.',
+        url: 'https://sdgs.un.org/goals/goal5'
+      }
     ]
   },
   {
     category: 'PLANET',
     color: 'emerald',
     sdgs: [
-      { number: 6, title: 'Clean Water & Sanitation', description: 'Ensure availability and sustainable management of water and sanitation for all.' },
-      { number: 7, title: 'Affordable & Clean Energy', description: 'Ensure access to affordable, reliable, sustainable, and modern energy.' },
-      { number: 12, title: 'Responsible Consumption & Production', description: 'Ensure sustainable consumption and production patterns.' },
-      { number: 13, title: 'Climate Action', description: 'Take urgent action to combat climate change and its impacts.' },
-      { number: 14, title: 'Life Below Water', description: 'Conserve and sustainably use the oceans, seas, and marine resources.' },
-      { number: 15, title: 'Life on Land', description: 'Protect, restore, and promote sustainable use of terrestrial ecosystems.' }
+      {
+        number: 6,
+        title: 'Clean Water & Sanitation',
+        description: 'Securing safe drinking water access, groundwater recharge, wastewater treatment, and watershed conservation.',
+        url: 'https://sdgs.un.org/goals/goal6'
+      },
+      {
+        number: 7,
+        title: 'Affordable & Clean Energy',
+        description: 'Accelerating universal clean electricity access, renewable grid integration, and clean cooking fuel transitions.',
+        url: 'https://sdgs.un.org/goals/goal7'
+      },
+      {
+        number: 12,
+        title: 'Responsible Consumption & Production',
+        description: 'Transitioning from linear resource extraction to circular economy practices, waste recovery, and sustainable supply chains.',
+        url: 'https://sdgs.un.org/goals/goal12'
+      },
+      {
+        number: 13,
+        title: 'Climate Action',
+        description: 'Deploying urgent emissions mitigation, renewable power expansion, and climate disaster adaptation for vulnerable regions.',
+        url: 'https://sdgs.un.org/goals/goal13'
+      },
+      {
+        number: 14,
+        title: 'Life Below Water',
+        description: 'Safeguarding marine ecosystems, coastal livelihoods, and oceanic biodiversity from pollution and unsustainable exploitation.',
+        url: 'https://sdgs.un.org/goals/goal14'
+      },
+      {
+        number: 15,
+        title: 'Life on Land',
+        description: 'Restoring degraded forests, protecting biodiversity corridors, and halting soil desertification for ecological balance.',
+        url: 'https://sdgs.un.org/goals/goal15'
+      }
     ]
   },
   {
     category: 'PROSPERITY',
     color: 'cyan',
     sdgs: [
-      { number: 8, title: 'Decent Work & Economic Growth', description: 'Promote sustained, inclusive, and sustainable economic growth and full employment.' },
-      { number: 9, title: 'Industry, Innovation & Infrastructure', description: 'Build resilient infrastructure, promote inclusive industrialization, and foster innovation.' },
-      { number: 10, title: 'Reduced Inequalities', description: 'Reduce inequality within and among countries.' },
-      { number: 11, title: 'Sustainable Cities & Communities', description: 'Make cities and human settlements inclusive, safe, resilient, and sustainable.' }
+      {
+        number: 8,
+        title: 'Decent Work & Economic Growth',
+        description: 'Fostering formal job creation, labor productivity growth, and entrepreneurial ecosystems while protecting worker rights.',
+        url: 'https://sdgs.un.org/goals/goal8'
+      },
+      {
+        number: 9,
+        title: 'Industry, Innovation & Infrastructure',
+        description: 'Building robust physical, digital, and logistics backbones while expanding domestic R&D and clean manufacturing.',
+        url: 'https://sdgs.un.org/goals/goal9'
+      },
+      {
+        number: 10,
+        title: 'Reduced Inequalities',
+        description: 'Narrowing rural-urban, regional, and socioeconomic disparities through progressive fiscal policies and universal basic services.',
+        url: 'https://sdgs.un.org/goals/goal10'
+      },
+      {
+        number: 11,
+        title: 'Sustainable Cities & Communities',
+        description: 'Developing transit-oriented, climate-resilient urban centers with inclusive housing, clean air, and efficient civic utilities.',
+        url: 'https://sdgs.un.org/goals/goal11'
+      }
     ]
   },
   {
     category: 'PARTNERSHIPS',
     color: 'purple',
     sdgs: [
-      { number: 16, title: 'Peace, Justice & Strong Institutions', description: 'Promote peaceful societies, provide access to justice, and build effective institutions.' },
-      { number: 17, title: 'Partnerships for the Goals', description: 'Strengthen the means of implementation and revitalize global partnerships.' }
+      {
+        number: 16,
+        title: 'Peace, Justice & Strong Institutions',
+        description: 'Building accountable public administration, transparent legal systems, and citizen-responsive governance institutions.',
+        url: 'https://sdgs.un.org/goals/goal16'
+      },
+      {
+        number: 17,
+        title: 'Partnerships for the Goals',
+        description: 'Mobilizing public-private capital, technology transfers, and multi-stakeholder collaboration to achieve shared national and global targets.',
+        url: 'https://sdgs.un.org/goals/goal17'
+      }
     ]
   }
 ];

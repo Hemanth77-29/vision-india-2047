@@ -6,42 +6,42 @@ export const PRIMARY_SOURCES: Record<string, DataSource> = {
     publisher: 'United Nations Population Division',
     url: 'https://population.un.org/wpp/',
     dateOrYear: 'July 2024',
-    notes: 'Primary authoritative dataset for global demographic estimates and projections.'
+    notes: 'Authoritative dataset for demographic estimates and medium-variant projections (projecting India population peak ~1.70B around 2062, ~1.51B by 2100).'
   },
   nfhs5: {
     name: 'National Family Health Survey (NFHS-5)',
     publisher: 'Ministry of Health and Family Welfare / IIPS',
     url: 'https://main.mohfw.gov.in/',
-    dateOrYear: '2021-2022',
-    notes: 'Empirical survey tracking TFR, maternal health, child nutrition across Indian states.'
+    dateOrYear: '2019–21 (Survey Period)',
+    notes: 'Empirical survey across 636,699 households; national TFR observed at 2.0 children per woman (below replacement level of 2.1).'
   },
   nitiViksit: {
     name: 'Viksit Bharat @2047 Strategy Framework',
     publisher: 'NITI Aayog & Government of India',
     url: 'https://www.niti.gov.in/',
-    dateOrYear: '2023-2024',
-    notes: 'Official national vision document targeting $30T economy by centenary of independence.'
+    dateOrYear: '2023–24',
+    notes: 'Official national vision document targeting $30T economy and NITI Aayog scenario: per-capita GDP above $18,000 by 2047.'
   },
   mnrePanchamrit: {
-    name: 'Executive Summary on Power Sector & Panchamrit Pledges',
-    publisher: 'Central Electricity Authority & MNRE',
-    url: 'https://mnre.gov.in/',
-    dateOrYear: 'January 2025',
-    notes: 'Official monthly reporting on installed non-fossil power capacity.'
+    name: 'Installed Renewable & Non-Fossil Power Capacity',
+    publisher: 'Ministry of New and Renewable Energy (MNRE) & CEA',
+    url: 'https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=2073038',
+    dateOrYear: '13 November 2024 (October 2024 data)',
+    notes: 'MNRE/PIB overview reports 203.18 GW renewable capacity, 211.36 GW non-fossil capacity including nuclear, and 452.69 GW total installed capacity. Its narrative renewable-share percentage is inconsistent with these totals; 203.18/452.69 is 44.9%, while 211.36/452.69 is 46.7%.'
   },
   worldBank: {
-    name: 'World Development Indicators',
-    publisher: 'World Bank Open Data',
+    name: 'World Development Indicators & IMF WEO',
+    publisher: 'World Bank Open Data & International Monetary Fund',
     url: 'https://data.worldbank.org/country/india',
     dateOrYear: '2024',
-    notes: 'Global development indicators for GDP, urban population share, and labor force data.'
+    notes: 'Global development indicators for GDP (ranked 5th globally by nominal GDP in 2024), urban population share, and labor force data.'
   },
   nitiSdg: {
     name: 'SDG India Index & Dashboard 2023-24',
-    publisher: 'NITI Aayog',
-    url: 'https://sdgindiaindex.niti.gov.in/',
-    dateOrYear: 'July 2024',
-    notes: 'Composite score evaluating 16 Sustainable Development Goals across states and UTs.'
+    publisher: 'NITI Aayog, Government of India',
+    url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2032857',
+    dateOrYear: 'July 2024 (2023–24 Edition)',
+    notes: 'Composite national score of 71/100 (PIB PRID 2032857; up from 66 in 2020–21 and 57 in 2018) evaluating progress across 16 SDGs.'
   },
   unfpaAgeing: {
     name: 'India Ageing Report 2023',
@@ -147,5 +147,34 @@ export const PRIMARY_SOURCES: Record<string, DataSource> = {
     url: 'https://unhabitat.org/',
     dateOrYear: '2024',
     notes: 'Global authoritative guidance on urban resilience and SDG 11 compliance.'
+  },
+  aisheEdu: {
+    name: 'All India Survey on Higher Education (AISHE 2023–24)',
+    publisher: 'Ministry of Education, Government of India',
+    url: 'https://aishe.gov.in/aishe-final-report/',
+    dateOrYear: 'July 2026 (2023–24 Report)',
+    notes: 'Latest published final report reviewed; reports a national higher-education Gross Enrolment Ratio (GER) of 30.0% for ages 18–23.'
+  },
+  plfsLabor: {
+    name: 'Periodic Labour Force Survey (PLFS 2025)',
+    publisher: 'Ministry of Statistics and Programme Implementation (MoSPI)',
+    url: 'https://mospi.gov.in/uploads/publications_reports/publications_reports1780040415321_0624fb13-fb47-40bc-b470-7c7e9635c3ef_PLFS_2025_F_REV_29052026.pdf',
+    dateOrYear: 'March 2026 (January–December 2025)',
+    notes: 'Latest annual report reviewed; female LFPR in usual status (ps+ss), age 15+, was 40.0%. This calendar-year series is not directly comparable to the older July–June annual series.'
+  },
+  ayushmanBharat: {
+    name: 'Ayushman Bharat PM-JAY Update',
+    publisher: 'National Health Authority (NHA), Ministry of Health & Family Welfare',
+    url: 'https://www.pib.gov.in/PressNoteDetails.aspx?ModuleId=3&NoteId=160081',
+    dateOrYear: '21 September 2026',
+    notes: 'Government update reports 48.51 crore people holding Ayushman cards; the 70+ expansion was announced in September 2024 and launched in October 2024.'
+  },
+  hiwareBazarCase: {
+    name: 'Hiware Bazar — Community-Led Watershed Management',
+    publisher: 'Yashwantrao Chavan Academy of Development Administration (YASHADA) & Ministry of Panchayati Raj',
+    url: 'https://panchayat.gov.in/',
+    dateOrYear: 'Model Panchayat Documentation',
+    notes: 'Case documentation of decentralized Gram Sabha watershed development and equitable groundwater management in Ahmednagar, Maharashtra.'
   }
 };
+

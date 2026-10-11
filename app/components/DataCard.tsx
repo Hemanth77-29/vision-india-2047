@@ -46,7 +46,7 @@ export const DataCard: React.FC<DataCardProps> = ({ indicator, onSelect }) => {
         </div>
 
         {/* Brief Description */}
-        <p className="text-xs text-slate-300 leading-relaxed mb-4 line-clamp-3">
+        <p className="text-xs text-slate-300 leading-relaxed mb-4 line-clamp-3 whitespace-pre-line">
           {indicator.description}
         </p>
       </div>

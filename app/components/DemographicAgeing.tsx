@@ -59,19 +59,19 @@ export const DemographicAgeing: React.FC = () => {
           <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 text-center">
             <span className="text-[10px] uppercase font-bold text-slate-400">Children (Ages 0 - 14)</span>
             <div className="text-2xl font-black text-slate-300 mt-1">24.4% → 15.3%</div>
-            <span className="text-[10px] text-slate-400">Decreasing share (2026 to 2100)</span>
+            <span className="text-[10px] text-slate-400">Decreasing share (UN WPP 2024 to 2100)</span>
           </div>
 
           <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 text-center">
             <span className="text-[10px] uppercase font-bold text-slate-400">Working Age (Ages 15 - 64)</span>
             <div className="text-2xl font-black text-emerald-400 mt-1">68.4% → 56.1%</div>
-            <span className="text-[10px] text-slate-400">Peak today, gradual contraction</span>
+            <span className="text-[10px] text-slate-400">High share, gradual decline as population ages</span>
           </div>
 
           <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 text-center">
             <span className="text-[10px] uppercase font-bold text-slate-400">Senior Citizens (Ages 65+)</span>
             <div className="text-2xl font-black text-purple-400 mt-1">7.2% → 28.6%</div>
-            <span className="text-[10px] text-purple-300 font-semibold">Rising 4x by century end</span>
+            <span className="text-[10px] text-purple-300 font-semibold">Rising ~4x by century end (UN WPP 2024)</span>
           </div>
         </div>
 

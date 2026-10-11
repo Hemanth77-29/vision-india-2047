@@ -81,7 +81,7 @@ export const CircularEconomyVisual: React.FC = () => {
           </div>
 
           <p className="text-xs text-slate-300 leading-relaxed">
-            Keeps products, components, and raw materials at their highest utility value at all times. Minimizes virgin extraction and eliminates non-biodegradable waste.
+            Keeps products, components, and raw materials at their highest utility value at all times. Minimizes virgin resource extraction, reduces waste, and keeps materials in productive use for longer.
           </p>
         </div>
 

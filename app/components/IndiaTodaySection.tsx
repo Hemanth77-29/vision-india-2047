@@ -82,6 +82,11 @@ export const IndiaTodaySection: React.FC = () => {
               onSelect={(item) => setSelectedIndicator(item)}
             />
           ))}
+          {filteredIndicators.length === 0 && (
+            <p className="col-span-full rounded-2xl border border-slate-800 bg-slate-900/60 p-6 text-center text-sm text-slate-300">
+              No official target metrics are included in this baseline dashboard. Targets are identified in their related policy sections below.
+            </p>
+          )}
         </div>
 
         {/* Detail Inspection Modal */}
@@ -119,7 +124,7 @@ export const IndiaTodaySection: React.FC = () => {
 
               <div className="text-xs text-slate-300 space-y-3 mb-6">
                 <p><strong>Benchmark Period:</strong> {selectedIndicator.year}</p>
-                <p><strong>Detailed Analysis:</strong> {selectedIndicator.description}</p>
+                <div className="whitespace-pre-line"><strong className="text-white">Detailed Analysis:</strong> {selectedIndicator.description}</div>
                 {selectedIndicator.trend && (
                   <p className="text-emerald-400 font-semibold"><strong>Observed Dynamics:</strong> {selectedIndicator.trend}</p>
                 )}

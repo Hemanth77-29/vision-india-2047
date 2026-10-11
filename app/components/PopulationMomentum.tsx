@@ -10,7 +10,7 @@ export const PopulationMomentum: React.FC = () => {
     {
       step: '02',
       title: 'Large Youth Base',
-      desc: 'Those large cohorts reach reproductive ages today, forming India\'s largest ever childbearing group.'
+      desc: 'Those large cohorts reach reproductive ages, giving India one of the world\'s largest young populations entering family-building ages.'
     },
     {
       step: '03',
@@ -24,13 +24,13 @@ export const PopulationMomentum: React.FC = () => {
     },
     {
       step: '05',
-      title: 'Growth Slowdown & Peak',
-      desc: 'As smaller youth cohorts reach adulthood, growth decelerates toward a peak (~1.69B in 2060s).'
+      title: 'Growth Deceleration & Projected Peak',
+      desc: 'As smaller youth cohorts reach adulthood, growth decelerates toward a projected peak of approximately 1.70 billion around 2062 (PROJECTION — UN World Population Prospects 2024).'
     },
     {
       step: '06',
-      title: 'Stabilization / Decline',
-      desc: 'Long-term equilibrium achieved with gradual population aging and potential stabilization (~1.50B by 2100).'
+      title: 'Population Decline After Peak',
+      desc: 'Population decline after the projected peak, contracting to approximately 1.51 billion by 2100 with gradual population ageing (PROJECTION — UN World Population Prospects 2024).'
     }
   ];
 
@@ -83,7 +83,7 @@ export const PopulationMomentum: React.FC = () => {
         <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs text-slate-300 flex items-center gap-3">
           <span className="text-lg">📌</span>
           <span>
-            <strong className="text-white">Key Takeaway:</strong> Low fertility does not instantly stop population growth. Population momentum ensures India will reach peak population around the 2060s before long-term stabilization.
+            <strong className="text-white">Key Takeaway:</strong> Low fertility does not instantly stop population growth. Population momentum can sustain population growth after fertility falls below replacement, before India reaches a projected peak around 2062 (~1.70 billion) followed by gradual population decline (UN WPP 2024 projection).
           </span>
         </div>
 

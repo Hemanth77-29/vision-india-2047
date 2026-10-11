@@ -5,7 +5,7 @@ import { DEMOGRAPHIC_TIMELINE_PERIODS } from '../data/demographicData';
 import { StatusBadge } from './StatusBadge';
 
 export const DemographicTimeline: React.FC = () => {
-  const [selectedPeriod, setSelectedPeriod] = useState<string>('2026');
+  const [selectedPeriod, setSelectedPeriod] = useState<string>('2024');
 
   const activePeriod = DEMOGRAPHIC_TIMELINE_PERIODS.find(
     (p) => p.year === selectedPeriod
@@ -38,7 +38,7 @@ export const DemographicTimeline: React.FC = () => {
       <div className="glass-panel rounded-2xl p-4 sm:p-6 mb-8 border border-slate-800">
         
         {/* Desktop / Tablet Timeline Track */}
-        <div className="hidden md:block relative py-6">
+        <div className="hidden lg:block relative py-6">
           {/* Background Track Line */}
           <div className="absolute top-1/2 left-6 right-6 h-1 bg-slate-800 -translate-y-1/2 z-0" />
 
@@ -77,7 +77,7 @@ export const DemographicTimeline: React.FC = () => {
         </div>
 
         {/* Mobile Vertical / Grid Timeline Buttons */}
-        <div className="md:hidden grid grid-cols-3 sm:grid-cols-4 gap-2">
+        <div className="lg:hidden grid grid-cols-3 sm:grid-cols-4 gap-2">
           {DEMOGRAPHIC_TIMELINE_PERIODS.map((period) => {
             const isSelected = period.year === selectedPeriod;
             return (

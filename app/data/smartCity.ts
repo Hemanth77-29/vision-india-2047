@@ -40,7 +40,7 @@ export const CITY_GOALS: CityGoal[] = [
   {
     id: 'green',
     title: 'Green City',
-    description: 'Prioritizes net-zero emissions, renewable energy grids, urban forests, and water conservation.',
+    description: 'Illustrates an aspirational low-emissions city with renewable energy, urban forests, and water conservation.',
     targetFocus: 'High Clean Energy, Green Cover & Water Efficiency'
   },
   {
@@ -122,7 +122,7 @@ export const SMART_CITY_INFRASTRUCTURE_CATALOG: InfrastructureItem[] = [
     category: 'MOBILITY',
     icon: '🚌',
     costCr: 800,
-    description: 'Zero-emission electric buses with smart depot charging and GPS tracking.',
+    description: 'Battery-electric buses with no tailpipe emissions, smart depot charging, and GPS tracking.',
     renderType: 'transit',
     maxAllowed: 4,
     impacts: { publicTransport: 20, cleanEnergy: 12, wellbeing: 8 }
@@ -179,7 +179,7 @@ export const SMART_CITY_INFRASTRUCTURE_CATALOG: InfrastructureItem[] = [
     category: 'ENERGY',
     icon: '🔋',
     costCr: 900,
-    description: 'Grid-scale lithium battery storage ensuring round-the-clock solar/wind stability.',
+    description: 'Grid-scale lithium battery storage that supports grid balancing and renewable-energy integration.',
     renderType: 'energy',
     maxAllowed: 3,
     impacts: { cleanEnergy: 18, digitalInfra: 10 }

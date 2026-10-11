@@ -17,14 +17,14 @@ export const DemographicSlider: React.FC = () => {
             Interactive Projection Engine
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-2">
-            5. Demographic Horizon Simulator (2026 — 2100)
+            5. Demographic Horizon Simulator (2024 — 2100)
           </h3>
           <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl">
             Drag the slider across future milestones to observe changes in total population, median age, working-age share, and senior dependency.
           </p>
         </div>
 
-        <StatusBadge type={activePoint.status} customLabel={activePoint.status === 'current' ? 'CURRENT BASELINE' : 'UN PROJECTION'} />
+        <StatusBadge type={activePoint.status} customLabel={activePoint.status === 'current' ? 'LATEST ESTIMATE' : 'PROJECTION — UN WPP 2024'} />
       </div>
 
       <div className="glass-panel rounded-3xl p-6 sm:p-10 border border-emerald-500/30 relative">
@@ -32,9 +32,9 @@ export const DemographicSlider: React.FC = () => {
         {/* Interactive Slider Track */}
         <div className="mb-10">
           <div className="flex items-center justify-between text-xs font-bold text-slate-300 mb-3">
-            <span>2026 Today</span>
+            <span>2024 Baseline</span>
             <span>2047 Centenary</span>
-            <span>2060s Peak</span>
+            <span>2062 Peak</span>
             <span>2100 Horizon</span>
           </div>
 
