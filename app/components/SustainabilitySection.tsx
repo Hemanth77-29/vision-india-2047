@@ -12,7 +12,7 @@ import { FromConceptToCityPanel } from './FromConceptToCityPanel';
 
 export const SustainabilitySection: React.FC = () => {
   return (
-    <section id="integrated-pillars" className="py-20 relative bg-[#060913] border-t border-slate-800/80">
+    <section id="integrated-pillars" className="py-20 relative bg-[var(--page-bg)] border-t border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* 1. WHY SUSTAINABLE DEVELOPMENT? & 3 Pillars Intersection */}

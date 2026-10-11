@@ -12,7 +12,7 @@ const tiers = [
 export function DecentralizationExplorer() {
   const [selected, setSelected] = useState('local');
   const tier = tiers.find((item) => item.id === selected) || tiers[2];
-  return <section id="decentralization" className="py-20 border-t border-slate-800/80 bg-[#060913] scroll-mt-20">
+  return <section id="decentralization" className="py-20 border-t border-slate-800/80 bg-[var(--page-bg)] scroll-mt-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mb-10"><p className="text-xs uppercase tracking-[.2em] text-emerald-300 font-bold">Decentralization & Local Governance</p><h2 className="text-3xl sm:text-5xl font-black text-white mt-3">Put decisions close to the people affected.</h2><p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-4">Decentralization distributes responsibilities and decision-making across levels of government. It can make services more responsive, while requiring clear authority, capable institutions, adequate resources and accountability. India’s Constitution provides for municipalities and lists municipal functions; which functions and powers are devolved is shaped by state law.</p></div>
       <div className="grid lg:grid-cols-[.8fr_1.2fr] gap-6">

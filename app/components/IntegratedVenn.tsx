@@ -11,7 +11,7 @@ export const IntegratedVenn: React.FC = () => {
   ) || INTEGRATED_INTERSECTIONS[3];
 
   return (
-    <section id="integrated-pillars" className="py-20 relative bg-[#060913]">
+    <section id="integrated-pillars" className="py-20 relative bg-[var(--page-bg)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

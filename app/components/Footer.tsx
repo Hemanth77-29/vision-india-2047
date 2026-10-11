@@ -10,7 +10,7 @@ const SOURCE_GROUPS = [
 
 export const Footer: React.FC = () => {
   return (
-    <footer id="sources" className="bg-[#04060d] border-t border-slate-800 text-slate-400 py-16 relative">
+    <footer id="sources" className="bg-[var(--page-bg)] border-t border-slate-800 text-slate-400 py-16 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Footer Section: Data Transparency Legend */}

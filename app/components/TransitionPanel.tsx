@@ -2,7 +2,7 @@ import React from 'react';
 
 export const TransitionPanel: React.FC = () => {
   return (
-    <div className="glass-panel rounded-3xl p-6 sm:p-10 border border-emerald-500/40 relative overflow-hidden bg-gradient-to-br from-[#0b1120] via-[#080d19] to-[#04060d]">
+    <div className="glass-panel rounded-3xl p-6 sm:p-10 border border-emerald-500/40 relative overflow-hidden bg-gradient-to-br from-[var(--surface-deep)] via-[var(--surface-deep)] to-[var(--page-bg)]">
       
       {/* Decorative Glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />

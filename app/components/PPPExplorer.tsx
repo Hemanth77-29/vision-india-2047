@@ -22,7 +22,7 @@ export function PPPExplorer() {
   const [checked, setChecked] = useState<boolean[]>(checks.map(() => false));
   const model = models.find((item) => item.id === modelId) || models[0];
   const count = checked.filter(Boolean).length;
-  return <section id="ppp" className="py-20 border-t border-slate-800/80 bg-[#080e1a] scroll-mt-20">
+  return <section id="ppp" className="py-20 border-t border-slate-800/80 bg-[var(--surface-deep)] scroll-mt-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mb-10"><p className="text-xs uppercase tracking-[.2em] text-cyan-300 font-bold">Public–Private Partnerships (PPP)</p><h2 className="text-3xl sm:text-5xl font-black text-white mt-3">Who builds, pays and carries risk?</h2><p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-4">A PPP is a way to structure a public service or infrastructure project with a private partner through a defined agreement. The public authority remains responsible for public outcomes. A private partner does not automatically make a project better or cheaper: payment rules, risk allocation, affordability and contract oversight matter.</p></div>
       <div className="grid lg:grid-cols-[.8fr_1.2fr] gap-6 items-start">

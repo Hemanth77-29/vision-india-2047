@@ -35,8 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth dark`}>
-      <body className="bg-[#060913] text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-300">
+    <html lang="en" className={`${inter.variable} scroll-smooth dark`} suppressHydrationWarning data-theme="dark">
+      <head><script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('vision-india-theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t}}catch(e){}` }} /></head>
+      <body className="theme-page text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-300">
         {children}
       </body>
     </html>

@@ -16,7 +16,7 @@ import { AskVisionAssistant } from './components/AskVisionAssistant';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#060913] selection:bg-emerald-500/30 selection:text-emerald-300">
+    <div className="min-h-screen flex flex-col theme-page selection:bg-emerald-500/30 selection:text-emerald-300">
       {/* Sticky Responsive Header Navigation */}
       <Navbar />
 

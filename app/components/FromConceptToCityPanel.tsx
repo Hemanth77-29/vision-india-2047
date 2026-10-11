@@ -2,7 +2,7 @@ import React from 'react';
 
 export const FromConceptToCityPanel: React.FC = () => {
   return (
-    <div id="smart-city-transition" className="glass-panel rounded-3xl p-8 sm:p-12 border border-emerald-500/40 relative overflow-hidden bg-gradient-to-br from-[#060913] via-[#0b1326] to-[#04060d]">
+    <div id="smart-city-transition" className="glass-panel rounded-3xl p-8 sm:p-12 border border-emerald-500/40 relative overflow-hidden bg-gradient-to-br from-[var(--page-bg)] via-[var(--surface-deep)] to-[var(--page-bg)]">
       
       {/* Background Accent Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />

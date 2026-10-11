@@ -9,7 +9,7 @@ import { TransitionPanel } from './TransitionPanel';
 
 export const DemographicSection: React.FC = () => {
   return (
-    <section id="demographics" className="py-20 relative bg-[#060913] border-t border-slate-800/80">
+    <section id="demographics" className="py-20 relative bg-[var(--page-bg)] border-t border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Section Header */}

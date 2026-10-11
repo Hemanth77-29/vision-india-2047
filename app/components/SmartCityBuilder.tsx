@@ -36,7 +36,7 @@ export function SmartCityBuilder() {
     });
   }
 
-  return <section id="smart-city" className="py-20 border-t border-slate-800/80 bg-[#070c17] scroll-mt-20">
+  return <section id="smart-city" className="py-20 border-t border-slate-800/80 bg-[var(--page-bg)] scroll-mt-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <SmartCityHeader selectedGoalId={goal} onSelectGoal={setGoal} />
       <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,.85fr)] gap-6 items-start">
