@@ -1,7 +1,8 @@
 'use client';
 
 import { FormEvent, useEffect, useRef, useState } from 'react';
-import { findAssistantAnswers, QUIZ_QUESTIONS, VIVA_QUESTIONS } from '../data/assistantKnowledge';
+import { sampleFiveQuestions } from '../data/questionSessions';
+import { findAssistantAnswers, QUIZ_QUESTIONS, VIVA_QUESTIONS, QuizQuestion, VivaQuestion } from '../data/assistantKnowledge';
 
 type Mode = 'ask' | 'quiz' | 'viva';
 type Message = { question: string; answers: ReturnType<typeof findAssistantAnswers> };
@@ -13,12 +14,17 @@ export function AskVisionAssistant() {
   const [mode, setMode] = useState<Mode>('ask');
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
+  const [quizSession, setQuizSession] = useState<QuizQuestion[]>([]);
   const [quizIndex, setQuizIndex] = useState(0);
   const [quizChoice, setQuizChoice] = useState<number | null>(null);
   const [quizScore, setQuizScore] = useState(0);
-  const [quizResult, setQuizResult] = useState<boolean | null>(null);
+  const [quizChecked, setQuizChecked] = useState(false);
+  const [quizFinished, setQuizFinished] = useState(false);
+  const [vivaSession, setVivaSession] = useState<VivaQuestion[]>([]);
   const [vivaIndex, setVivaIndex] = useState(0);
-  const [showVivaAnswer, setShowVivaAnswer] = useState(false);
+  const [vivaResponse, setVivaResponse] = useState('');
+  const [vivaAnswered, setVivaAnswered] = useState(false);
+  const [vivaFinished, setVivaFinished] = useState(false);
   const [highlightedId, setHighlightedId] = useState<string | null>(null);
   const launcherRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -61,22 +67,31 @@ export function AskVisionAssistant() {
     }, 2200);
   }
 
-  const quiz = QUIZ_QUESTIONS[quizIndex % QUIZ_QUESTIONS.length];
-  const viva = VIVA_QUESTIONS[vivaIndex % VIVA_QUESTIONS.length];
+  const quiz = quizSession[quizIndex];
+  const viva = vivaSession[vivaIndex];
 
+  function startQuiz() {
+    setMode('quiz'); setQuizSession(sampleFiveQuestions(QUIZ_QUESTIONS)); setQuizIndex(0);
+    setQuizChoice(null); setQuizScore(0); setQuizChecked(false); setQuizFinished(false);
+  }
+  function startViva() {
+    setMode('viva'); setVivaSession(sampleFiveQuestions(VIVA_QUESTIONS)); setVivaIndex(0);
+    setVivaResponse(''); setVivaAnswered(false); setVivaFinished(false);
+  }
   function submitQuiz() {
-    if (quizChoice === null) return;
-    const correct = quizChoice === quiz.correct;
-    setQuizResult(correct);
-    if (correct) setQuizScore((score) => score + 1);
-    setQuizChoice(-1);
+    if (quizChoice === null || quizChecked || !quiz) return;
+    if (quizChoice === quiz.correct) setQuizScore((score) => score + 1);
+    setQuizChecked(true);
+  }
+  function nextQuiz() {
+    if (quizIndex === quizSession.length - 1) { setQuizFinished(true); return; }
+    setQuizIndex((index) => index + 1); setQuizChoice(null); setQuizChecked(false);
+  }
+  function nextViva() {
+    if (vivaIndex === vivaSession.length - 1) { setVivaFinished(true); return; }
+    setVivaIndex((index) => index + 1); setVivaResponse(''); setVivaAnswered(false);
   }
 
-  function nextQuiz() {
-    setQuizIndex((index) => index + 1);
-    setQuizChoice(null);
-    setQuizResult(null);
-  }
 
   return <>
     <button ref={launcherRef} type="button" onClick={() => setOpen((value) => !value)} aria-label="Open Ask Vision assistant" aria-expanded={open} aria-controls="vision-assistant-panel" className="chakra-launcher fixed z-[60] inline-flex items-center justify-center rounded-full focus-visible:outline-none">
@@ -88,7 +103,7 @@ export function AskVisionAssistant() {
         <button type="button" aria-label="Close assistant" onClick={() => { setOpen(false); launcherRef.current?.focus(); }} className="rounded-lg px-2 py-1 text-slate-300 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">✕</button>
       </div>
       <div role="group" aria-label="Assistant mode" className="grid grid-cols-3 gap-1 border-b border-slate-800 p-2">
-        {(['ask', 'quiz', 'viva'] as Mode[]).map((item) => <button key={item} aria-pressed={mode === item} type="button" onClick={() => setMode(item)} className={`rounded-lg px-2 py-2 text-xs font-semibold capitalize focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 ${mode === item ? 'bg-cyan-400/15 text-cyan-200' : 'text-slate-400 hover:bg-slate-800'}`}>{item === 'ask' ? 'Ask' : item === 'quiz' ? 'Quiz Me' : 'Viva Mode'}</button>)}
+        {(['ask', 'quiz', 'viva'] as Mode[]).map((item) => <button key={item} aria-pressed={mode === item} type="button" onClick={() => { if (item === 'quiz') startQuiz(); else if (item === 'viva') startViva(); else setMode('ask'); }} className={`rounded-lg px-2 py-2 text-xs font-semibold capitalize focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 ${mode === item ? 'bg-cyan-400/15 text-cyan-200' : 'text-slate-400 hover:bg-slate-800'}`}>{item === 'ask' ? 'Ask' : item === 'quiz' ? 'Quiz Me' : 'Viva Mode'}</button>)}
       </div>
 
       {mode === 'ask' && <>
@@ -110,16 +125,26 @@ export function AskVisionAssistant() {
       </>}
 
       {mode === 'quiz' && <div className="min-h-0 flex-1 overflow-y-auto p-4">
-        <p className="text-xs text-slate-400">Question {quizIndex + 1} · Score {quizScore}</p><h3 className="mt-3 text-base font-semibold">{quiz.question}</h3>
-        <div className="mt-4 space-y-2">{quiz.choices.map((choice, index) => <button key={choice} type="button" disabled={quizChoice === -1} aria-pressed={quizChoice === index} onClick={() => setQuizChoice(index)} className={`w-full rounded-xl border p-3 text-left text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 ${quizChoice === index ? 'border-cyan-300 bg-cyan-950/70 text-white' : 'border-slate-700 bg-slate-900 text-slate-200'}`}>{choice}</button>)}</div>
-        {quizChoice === -1 && <p role="status" className="mt-4 rounded-xl bg-slate-900 p-3 text-sm text-slate-200">{quizResult ? 'Correct. ' : 'Not quite. '}{quiz.explanation}</p>}
-        <div className="mt-4 flex gap-2">{quizChoice === -1 ? <button type="button" onClick={nextQuiz} className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950">Next question</button> : <button type="button" disabled={quizChoice === null} onClick={submitQuiz} className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950 disabled:opacity-40">Check answer</button>}<button type="button" onClick={() => { setQuizIndex(0); setQuizChoice(null); setQuizScore(0); setQuizResult(null); }} className="rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-200">Restart</button></div>
+        {quizFinished ? <div className="text-center" role="status"><p className="text-xs uppercase tracking-wider text-emerald-300">Quiz complete</p><h3 className="mt-3 text-2xl font-bold">{quizScore} / 5</h3><p className="mt-2 text-sm text-slate-300">You completed this five-question session.</p><button type="button" onClick={startQuiz} className="mt-5 rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950">New quiz</button></div> : quiz && <div data-question-id={quiz.id}>
+          <div className="flex items-center justify-between gap-2"><p className="text-xs text-slate-400">Question {quizIndex + 1} of 5 · Score {quizScore}</p><button type="button" onClick={startQuiz} className="text-xs text-cyan-300 underline">New quiz</button></div>
+          <p className="mt-1 text-[10px] uppercase tracking-wider text-slate-500">{quiz.topic}</p><h3 className="mt-2 text-base font-semibold">{quiz.question}</h3>
+          <div className="mt-4 space-y-2">{quiz.choices.map((choice, index) => <button key={choice} type="button" disabled={quizChecked} aria-pressed={quizChoice === index} onClick={() => setQuizChoice(index)} className={`w-full rounded-xl border p-3 text-left text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 ${quizChoice === index ? 'border-cyan-300 bg-cyan-950/70 text-white' : 'border-slate-700 bg-slate-900 text-slate-200'}`}>{choice}</button>)}</div>
+          {quizChecked && <p role="status" className="mt-4 rounded-xl bg-slate-900 p-3 text-sm text-slate-200">{quizChoice === quiz.correct ? 'Correct. ' : 'Not quite. '}{quiz.explanation}</p>}
+          <div className="mt-4">{quizChecked ? <button type="button" onClick={nextQuiz} className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950">{quizIndex === 4 ? 'See results' : 'Next question'}</button> : <button type="button" disabled={quizChoice === null} onClick={submitQuiz} className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950 disabled:opacity-40">Check answer</button>}</div>
+        </div>}
       </div>}
 
       {mode === 'viva' && <div className="min-h-0 flex-1 overflow-y-auto p-4">
-        <p className="text-xs text-slate-400">Practice prompt {vivaIndex + 1} of {VIVA_QUESTIONS.length}</p><h3 className="mt-3 text-base font-semibold">{viva.prompt}</h3>
-        {showVivaAnswer ? <div className="mt-4 rounded-xl bg-slate-900 p-3"><p className="text-sm leading-relaxed text-slate-200">{viva.answer}</p><a className="mt-3 inline-block text-xs text-cyan-300 underline" href={viva.source.url} target="_blank" rel="noopener noreferrer">{viva.source.name} ↗</a></div> : <p className="mt-3 text-sm text-slate-400">Think through your response, then reveal a concise, sourced answer.</p>}
-        <div className="mt-4 flex flex-wrap gap-2">{!showVivaAnswer ? <button type="button" onClick={() => setShowVivaAnswer(true)} className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950">Reveal answer</button> : <button type="button" onClick={() => { setVivaIndex((index) => index + 1); setShowVivaAnswer(false); }} className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950">Next prompt</button>}<button type="button" onClick={() => setShowVivaAnswer(false)} className="rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-200">Hide answer</button></div>
+        {vivaFinished ? <div className="text-center" role="status"><p className="text-xs uppercase tracking-wider text-emerald-300">Viva session complete</p><h3 className="mt-3 text-lg font-bold">Five prompts completed</h3><p className="mt-2 text-sm text-slate-300">Review the key ideas and sources from this session.</p><button type="button" onClick={startViva} className="mt-5 rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950">New Viva session</button></div> : viva && <div data-question-id={viva.id}>
+          <div className="flex items-center justify-between gap-2"><p className="text-xs text-slate-400">Prompt {vivaIndex + 1} of 5</p><button type="button" onClick={startViva} className="text-xs text-cyan-300 underline">New session</button></div>
+          <p className="mt-1 text-[10px] uppercase tracking-wider text-slate-500">{viva.topic}</p><h3 className="mt-2 text-base font-semibold">{viva.prompt}</h3>
+          {!vivaAnswered ? <form onSubmit={(event) => { event.preventDefault(); if (vivaResponse.trim()) setVivaAnswered(true); }} className="mt-4 space-y-3">
+            <label htmlFor="vision-viva-response" className="block text-xs text-slate-300">Your response</label><textarea id="vision-viva-response" required value={vivaResponse} onChange={(event) => setVivaResponse(event.target.value)} rows={3} className="w-full resize-y rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" placeholder="Write or say your answer aloud, then summarize it here." />
+            <button type="submit" className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950">Submit response</button>
+          </form> : <div className="mt-4 space-y-3"><div className="rounded-xl bg-slate-900 p-3"><p className="text-[10px] uppercase tracking-wider text-emerald-300">Key points</p><p className="mt-1 text-sm leading-relaxed text-slate-200">{viva.answer}</p><p className="mt-2 text-xs text-slate-400">Consider: {viva.guidance}</p><a className="mt-3 inline-block text-xs text-cyan-300 underline" href={viva.source.url} target="_blank" rel="noopener noreferrer">{viva.source.name} ↗</a></div>
+            <button type="button" onClick={nextViva} className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950">{vivaIndex === 4 ? 'Finish session' : 'Next prompt'}</button>
+          </div>}
+        </div>}
       </div>}
     </div>}
   </>;
